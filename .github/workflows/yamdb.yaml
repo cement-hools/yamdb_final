@@ -20,8 +20,8 @@ jobs:
           pip install -r requirements.txt
       - name: Lint with flake8
         run: flake8 .
-#      - name: Test with pytest
-#        run: pytest
+      - name: Test with pytest
+        run: pytest
 
   build_and_push_to_docker_hub:
     name: Push Docker image to Docker Hub
@@ -53,7 +53,6 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_KEY }}
-#          passphrase: ${{ secrets.PASSPHRASE }} # если ваш ssh-ключ защищен паролем
           script: |
             sudo docker pull cementhools/yamdb:latest
             sudo docker stop $(sudo docker ps -a -q)
@@ -61,7 +60,7 @@ jobs:
 
   send_message:
     runs-on: ubuntu-latest
-    needs: build_and_push_to_docker_hub
+    needs: deploy
     steps:
       - name: send message
         uses: appleboy/telegram-action@master
