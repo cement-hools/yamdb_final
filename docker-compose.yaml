@@ -1,5 +1,10 @@
 version: '3.8'
 
+volumes:
+  postgres_data:
+  static_volume:
+  nginx:
+
 services:
   db:
     image: postgres:latest
@@ -11,7 +16,8 @@ services:
     build: .
     restart: always
     volumes:
-      - static_volume:code/static/
+      - static_volume:/static/
+      - nginx:/code/nginx/
     expose:
       - 8000
     depends_on:
@@ -19,14 +25,14 @@ services:
     env_file:
       - ./.env
   nginx:
-    build: ./nginx
+    image: nginx:latest
     volumes:
-      - static_volume:code/static/
+      - static_volume:/static/
+      - nginx:/etc/nginx/conf.d/
     ports:
-      - 8000:80
+      - 8080:80
     depends_on:
       - web
 
-  volumes:
-    postgres_data:
-    static_volume:
+
+
