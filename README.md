@@ -37,3 +37,5 @@ https://github.com/cement-hools/yamdb_final/workflows/yamdbworkflow/badge.svg
 ### Документация по использованию
 - после установки перейдите в браузре на http://localhost:8000/redoc/ 
 
+### Проект развернут по адресу
+- http://130.193.43.51:8000/redoc/
