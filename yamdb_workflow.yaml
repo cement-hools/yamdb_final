@@ -1,6 +1,9 @@
 name: yamdb workflow
 
-on: [push]
+on:
+  push:
+    branches:
+      - master
 
 jobs:
   tests:
@@ -53,9 +56,9 @@ jobs:
           username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_KEY }}
           script: |
-            sudo docker pull cementhools/yamdb_final:latest
-            sudo docker stop $(sudo docker ps -a -q)
-            sudo docker run --rm -d -p 8000:8000 cementhools/yamdb_final:latest
+            sudo docker-compose down
+            sudo docker-compose build
+            sudo docker-compose up -d
 
   send_message:
     runs-on: ubuntu-latest
