@@ -8,12 +8,14 @@ volumes:
 services:
   db:
     image: postgres:13.2
+    container_name: db
     volumes:
       - postgres_data:/var/lib/postgresql/data/
     env_file:
       - ./.env
   web:
     image: cementhools/yamdb_final:latest
+    container_name: web
     restart: always
     volumes:
       - static_volume:/code/static/
@@ -30,7 +32,7 @@ services:
       - static_volume:/static/
       - nginx:/etc/nginx/conf.d/
     ports:
-      - 8080:80
+      - 80:80
     depends_on:
       - web
 
