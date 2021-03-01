@@ -10,11 +10,11 @@ https://github.com/cement-hools/yamdb_final/workflows/yamdbworkflow/badge.svg
 ### Установка
 - склонируйте проект с реппозитория GitHub
     ```
-    git clone https://github.com/cement-hools/infra_sp2
+    git clone https://github.com/cement-hools/yamdb_final
     ```
-- перейдите в директорию infra_sp2
+- перейдите в директорию yamdb_final
     ```
-    cd infra_sp2
+    cd yamdb_final
     ```
 - запустите docker-compose
     ```
@@ -35,7 +35,7 @@ https://github.com/cement-hools/yamdb_final/workflows/yamdbworkflow/badge.svg
     ```  
 
 ### Документация по использованию
-- после установки перейдите в браузре на http://localhost:8000/redoc/ 
+- после установки перейдите в браузре на http://localhost/redoc/ 
 
 ### Проект развернут по адресу
-- http://130.193.43.51:8000/redoc/
+- http://130.193.43.51/redoc/
